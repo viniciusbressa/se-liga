@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./noticias.css">
+    <title>Noticias</title>
+</head>
+
+<body>
+    <main class="conteiner">
+
+        <header>
+            <img style="cursor: pointer;" id="logo" src="./assests/logo.png" />
+            <nav>
+                <ul>
+                    <a href="./main.html">
+                        <li>Inicio</li>
+                    </a>
+
+                    <a href="./historia.html">
+                        <li>Historia</li>
+                    </a>
+
+                    <a href="./noticias.html">
+                        <li>Noticias</li>
+                    </a>
+
+                    <a href="./fotos.html">
+                        <li>Fotos</li>
+                    </a>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="banner-container">
+            <img src="./assests/1459787321CE_Leoncio_Correia27.jpg" id="banner" />
+        </div>
+
+        <div class="titulo-noticias-container">
+            <div class="titulo-noticias">
+                <p><b>NOTICIAS</b></p>
+            </div>
+        </div>
+
+        <section id="admin" style="padding: 20px; margin-top: 40px;">
+            <h2>Painel Administrativo</h2>
+
+            <form id="formAdmin" style="display: flex; flex-direction: column; gap: 10px; max-width: 500px;">
+                <input type="text" id="titulo" placeholder="Título da notícia" required>
+                <input type="text" id="imagem" placeholder="URL da imagem (opcional)">
+                <textarea id="conteudo" placeholder="Conteúdo da notícia" rows="5" required></textarea>
+                <button type="submit" style="padding: 10px; cursor: pointer;">Publicar</button>
+            </form>
+        </section>
+
+        <div id="img">
+
+            <div class="noticia">
+                <img class="img" src="./assests/3435867_orig.jpg" />
+                <div class="sinopse">
+                    <h2>Final Interclasse 2025</h2>
+                    <p class="Description">
+                        A Manhã caiu sobre a quadra do Colegio Leôncio Correia como um palco pronto para a história...
+                    </p>
+                </div>
+            </div>
+
+            <hr class="divisor">
+
+            <div class="noticia">
+                <img class="img" src="./assests/formatura.jpg" />
+                <div class="sinopse">
+                    <h2>Despedida da Turma de Formandos de 2025</h2>
+                    <p class="Description">
+                        O fim do ano letivo de 2025 chegou ao Colégio Estadual Leôncio Correia trazendo um misto de celebração...
+                    </p>
+                </div>
+            </div>
+
+            <hr class="divisor">
+
+            <div class="noticia">
+                <img class="img" src="./assests/time-volei.jpg" />
+                <div class="sinopse">
+                    <h2>Vitoria do colegio no volei</h2>
+                    <p class="Description">
+                        O time de vôlei feminino do Colégio Leôncio Correia conquistou uma vitória impressionante...
+                    </p>
+                </div>
+            </div>
+
+            <hr class="divisor">
+
+            <div class="noticia">
+                <img class="img" src="./assests/Enem-2025-1.jpg" />
+                <div class="sinopse">
+                    <h2>Leoncio Correia no ENEM 2025</h2>
+                    <p class="Description">
+                        O Colégio Estadual Leôncio Correia participou da edição 2025 do ENEM...
+                    </p>
+                </div>
+            </div>
+
+            <hr class="divisor">
+
+            <div class="noticia">
+                <img class="img" src="./assests/cultivando-saberes2021.jpg" />
+                <div class="sinopse">
+                    <h2>Cultivando Saberes</h2>
+                    <p class="Description">
+                        O Projeto Cultivando Saberes, desenvolvido no Colégio Estadual Leôncio Correia...
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <img style="object-fit: contain; width: 80px; cursor: pointer;" id="logo" src="./assests/logo.png" />
+        <spam>Todos os direitos reservados 2025 ©</spam>
+        <spam>Desinvolvido por: Vinicius Bressan</spam>
+    </footer>
+
+    <script>
+        const form = document.getElementById("formAdmin");
+        const noticiasContainer = document.getElementById("img");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let titulo = document.getElementById("titulo").value;
+            let conteudo = document.getElementById("conteudo").value;
+            let imagem = document.getElementById("imagem").value || "./assests/logo.png";
+
+            let novaNoticia = document.createElement("div");
+            novaNoticia.classList.add("noticia");
+
+            novaNoticia.innerHTML = `
+                <img class="img" src="${imagem}">
+                <div class="sinopse">
+                    <h2>${titulo}</h2>
+                    <p class="Description">${conteudo}</p>
+                </div>
+            `;
+
+            let divisor = document.createElement("hr");
+            divisor.classList.add("divisor");
+
+            noticiasContainer.appendChild(divisor);
+            noticiasContainer.appendChild(novaNoticia);
+
+            form.reset();
+        });
+    </script>
+
+</body>
+
+</html>
